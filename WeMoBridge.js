@@ -348,7 +348,7 @@ WeMoBridge.prototype.meta = function () {
     }
 
     return {
-        "iot:thing": _.id.thing_urn.unique("WeMoSocket", self.native.uuid),
+        "iot:thing-id": _.id.thing_urn.unique("WeMoSocket", self.native.uuid),
         "schema:name": name,
         'iot:vendor.type': self.native.deviceType,
         'iot:vendor.model': self.native.modelName,
