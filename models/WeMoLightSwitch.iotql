@@ -1,0 +1,12 @@
+--
+--  compile to JSON with 'iotql-model WeMoLightSwitch.iotql'
+--
+CREATE MODEL WeMoLightSwitch WITH
+    schema:name = "WeMo Light Switch",
+    schema:description = "Belkin WeMo Light Switch",
+    iot:facet = iot-facet:switch
+ATTRIBUTE on WITH
+    schema:name = "on",
+    iot:purpose = iot-purpose:on,
+    iot:type = iot:type.boolean
+;

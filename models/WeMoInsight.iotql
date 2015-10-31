@@ -1,0 +1,34 @@
+--
+--  compile to JSON with 'iotql-model WeMoInsight.iotql'
+--
+CREATE MODEL WeMoInsight WITH
+    schema:name = "WeMo Insight",
+    schema:description = "Belkin WeMo Insight",
+    iot:facet = iot-facet:plug,
+    iot:facet = iot-facet:switch,
+    iot:facet = iot-facet:sensor
+ATTRIBUTE on WITH
+    schema:name = "on",
+    iot:purpose = iot-purpose:on,
+    iot:type = iot:type.boolean
+ATTRIBUTE "today-power" WITH
+    schema:name = "value",
+    iot:purpose = iot-purpose:value,
+    iot:type = iot:type.number,
+    iot:read = true
+ATTRIBUTE "total-power" WITH
+    schema:name = "value",
+    iot:purpose = iot-purpose:value,
+    iot:type = iot:type.number,
+    iot:read = true
+ATTRIBUTE "today-uptime" WITH
+    schema:name = "value",
+    iot:purpose = iot-purpose:value,
+    iot:type = iot:type.integer,
+    iot:read = true
+ATTRIBUTE "total-uptime" WITH
+    schema:name = "value",
+    iot:purpose = iot-purpose:value,
+    iot:type = iot:type.integer,
+    iot:read = true
+;

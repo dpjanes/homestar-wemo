@@ -10,16 +10,9 @@
 
 var iotdb = require("iotdb");
 
-exports.Model = iotdb.make_model('WeMoCrockpot')
-    .product("http://www.belkin.com/us/support-product?pid=01t80000003ddEuAAI")
-    .name("WeMo Crockpot")
-    .description("Belkin WeMo Crockpot")
-    .io("on", iotdb.boolean.on)
-    .make();
-
 exports.binding = {
     bridge: require('../WeMoBridge').Bridge,
-    model: exports.Model,
+    model: require('./WeMoCrockpot.json'),
     matchd: {
         'iot:vendor.type': 'urn:Belkin:device:crockpot:1',
     },

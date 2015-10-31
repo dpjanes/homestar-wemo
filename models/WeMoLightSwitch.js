@@ -10,17 +10,9 @@
 
 var iotdb = require("iotdb");
 
-exports.Model = iotdb.make_model('WeMoLightSwitch')
-    .facet(":switch")
-    .product("http://www.belkin.com/us/p/P-F7C030/")
-    .name("WeMo Light Switch")
-    .description("Belkin WeMo Light Switch")
-    .io("on", iotdb.boolean.on)
-    .make();
-
 exports.binding = {
     bridge: require('../WeMoBridge').Bridge,
-    model: exports.Model,
+    model: require('./WeMoLightSwitch.json'),
     matchd: {
         'iot:vendor.type': 'urn:Belkin:device:lightswitch:1',
     },

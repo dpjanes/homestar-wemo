@@ -10,17 +10,9 @@
 
 var iotdb = require("iotdb");
 
-exports.Model = iotdb.make_model('WeMoMotion')
-    .facet(":sensor.motion")
-    .product("http://www.belkin.com/us/p/P-F5Z0340/")
-    .name("WeMo Motion")
-    .description("Belkin WeMo Motion")
-    .i("motion", iotdb.sensor.boolean.motion)
-    .make();
-
 exports.binding = {
     bridge: require('../WeMoBridge').Bridge,
-    model: exports.Model,
+    model: require('./WeMoMotion.json'),
     matchd: {
         'iot:vendor.type': 'urn:Belkin:device:sensor:1',
     },

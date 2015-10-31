@@ -11,31 +11,9 @@
 var iotdb = require("iotdb");
 var _ = iotdb._;
 
-exports.Model = iotdb.make_model('WeMoInsight')
-    .facet(":plug")
-    .facet(":switch")
-    .facet(":sensor")
-    .product("http://www.belkin.com/us/support-product?pid=01t80000003JS3FAAW")
-    .name("WeMo Insight")
-    .description("Belkin WeMo Insight")
-    .io("on", iotdb.boolean.on)
-    .i("today-power", iotdb.number, {
-        "iot:unit": "iot-unit:energy.si.joule",
-    })
-    .i("total-power", iotdb.number, {
-        "iot:unit": "iot-unit:energy.si.joule",
-    })
-    .i("today-uptime", iotdb.integer, {
-        "iot:unit": "iot-unit:time.si.second",
-    })
-    .i("total-uptime", iotdb.integer, {
-        "iot:unit": "iot-unit:time.si.second",
-    })
-    .make();
-
 exports.binding = {
     bridge: require('../WeMoBridge').Bridge,
-    model: exports.Model,
+    model: require('./WeMoInsight.json'),
     matchd: {
         'iot:vendor.type': 'urn:Belkin:device:insight:1',
         'iot:vendor.model': 'Insight',

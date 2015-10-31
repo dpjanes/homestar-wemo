@@ -8,18 +8,9 @@
 
 var iotdb = require("iotdb");
 
-exports.Model = iotdb.make_model('WeMoSocket')
-    .facet(":plug")
-    .facet(":switch")
-    .product("http://www.belkin.com/us/F7C027-Belkin/p/P-F7C027/")
-    .name("WeMo Socket")
-    .description("Belkin WeMo Socket")
-    .io("on", iotdb.boolean.on)
-    .make();
-
 exports.binding = {
     bridge: require('../WeMoBridge').Bridge,
-    model: exports.Model,
+    model: require('./WeMoSocket.json'),
     matchd: {
         'iot:vendor.type': 'urn:Belkin:device:controllee:1',
         'iot:vendor.model': 'Socket',

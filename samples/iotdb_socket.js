@@ -10,8 +10,8 @@ var iot = iotdb.iot();
 var things = iot.connect('WeMoSocket');
 things.on("state", function(thing) {
     console.log("+", thing.thing_id(), 
-        "\n istate:", thing.state("istate"), 
-        "\n ostate:", thing.state("ostate"));
+        "\n  istate:", thing.state("istate"), 
+        "\n  ostate:", thing.state("ostate"));
 });
 
 var on = false;
