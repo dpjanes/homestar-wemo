@@ -2,7 +2,7 @@
 
 Connect and control WeMo products with HomeStar and IOTDB.
 
-<img src="https://github.com/dpjanes/iotdb-homestar/blob/master/docs/HomeStar.png" align="right" />
+<img src="https://raw.githubusercontent.com/dpjanes/iotdb-homestar/master/docs/HomeStar.png" align="right" />
 
 See <a href="samples/">the samples</a> for details how to add to your project.
 particularly <code>model.js</code> for "standalone" and <code>iotdb.js</code>
@@ -10,10 +10,9 @@ for use in IOTDB / HomeStar projects.
 
 # Installation
 
-Install Home☆Star first. 
-See: https://github.com/dpjanes/iotdb-homestar#installation
+[Install Home☆Star first](https://homestar.io/about/install).
 
-Then
+Then:
 
     $ homestar install homestar-wemo
 
@@ -26,8 +25,7 @@ Turn off all WeMo sockets
 	$ homestar install homestar-wemo
 	$ node
 	>>> iotdb = require('iotdb')
-	>>> iot = iotdb.iot()
-	>>> things = iot.connect("WeMoSocket")
+	>>> things = iotdb.connect("WeMoSocket")
 	>>> things.set(":on", false)
 
 # Models
