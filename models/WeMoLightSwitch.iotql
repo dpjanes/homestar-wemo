@@ -8,5 +8,9 @@ CREATE MODEL WeMoLightSwitch WITH
 ATTRIBUTE on WITH
     schema:name = "on",
     iot:purpose = iot-purpose:on,
-    iot:type = iot:type.boolean
+    iot:type = iot:type.boolean,
+    iot:actuator = true,
+    iot:sensor = true,
+    iot:write = true,
+    iot:read = true
 ;

@@ -10,25 +10,37 @@ CREATE MODEL WeMoInsight WITH
 ATTRIBUTE on WITH
     schema:name = "on",
     iot:purpose = iot-purpose:on,
-    iot:type = iot:type.boolean
+    iot:type = iot:type.boolean,
+    iot:actuator = true,
+    iot:sensor = true,
+    iot:write = true,
+    iot:read = true
 ATTRIBUTE "today-power" WITH
     schema:name = "value",
     iot:purpose = iot-purpose:value,
+    iot:what = iot-purpose:what.power,
     iot:type = iot:type.number,
+    iot:sensor = true,
     iot:read = true
 ATTRIBUTE "total-power" WITH
     schema:name = "value",
     iot:purpose = iot-purpose:value,
+    iot:what = iot-purpose:what.power.day,
     iot:type = iot:type.number,
+    iot:sensor = true,
     iot:read = true
 ATTRIBUTE "today-uptime" WITH
     schema:name = "value",
-    iot:purpose = iot-purpose:value,
+    iot:purpose = iot-purpose:duration,
+    iot:what = iot-purpose:what.day,
     iot:type = iot:type.integer,
+    iot:sensor = true,
     iot:read = true
 ATTRIBUTE "total-uptime" WITH
     schema:name = "value",
-    iot:purpose = iot-purpose:value,
+    iot:purpose = iot-purpose:duration,
+    iot:what = iot-purpose:what.uptime,
     iot:type = iot:type.integer,
+    iot:sensor = true,
     iot:read = true
 ;

@@ -8,7 +8,8 @@ CREATE MODEL WeMoMotion WITH
     iot:facet = iot-facet:sensor.motion
 ATTRIBUTE motion WITH
     schema:name = "motion",
-    iot:purpose = iot-purpose:sensor.motion,
+    iot:purpose = iot-purpose:motion,
     iot:type = iot:type.boolean,
+    iot:sensor = true,
     iot:read = true
 ;
