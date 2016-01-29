@@ -27,6 +27,7 @@
     "iot-facet:plug",
     "iot-facet:switch"
   ],
+  "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-wemo/master/models/WeMoSocket.json",
   "iot:attribute": [
     {
       "@type": "iot:Attribute",

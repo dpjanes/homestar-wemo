@@ -27,6 +27,7 @@
     "iot-facet:sensor",
     "iot-facet:sensor.motion"
   ],
+  "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-wemo/master/models/WeMoMotion.json",
   "iot:attribute": [
     {
       "@type": "iot:Attribute",
