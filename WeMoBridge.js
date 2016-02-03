@@ -57,7 +57,7 @@ WeMoBridge.prototype.name = function () {
 WeMoBridge.prototype.discover = function () {
     var self = this;
 
-    var cp = iotdb.module("iotdb-upnp").control_point();
+    var cp = require("iotdb-upnp").control_point();
 
     cp.on("device", function (native) {
         if (!self._is_supported(native)) {
