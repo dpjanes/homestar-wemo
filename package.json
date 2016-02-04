@@ -21,7 +21,7 @@
     "main": "index.js", 
     "name": "homestar-wemo", 
     "peerDependencies": {
-        "iotdb-upnp": "~0.0.9"
+        "iotdb-upnp": "~0.0.10"
     }, 
     "private": false, 
     "repository": {
@@ -31,5 +31,5 @@
     "scripts": {
         "test": "grunt"
     }, 
-    "version": "0.1.14"
+    "version": "0.1.15"
 }
