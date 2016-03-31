@@ -3,8 +3,7 @@
 --
 CREATE MODEL WeMoCrockpot WITH
     schema:name = "WeMo Crockpot",
-    schema:description = "Belkin WeMo Crockpot",
-    iot:model = "https://raw.githubusercontent.com/dpjanes/homestar-wemo/master/models/WeMoCrockpot.json"
+    schema:description = "Belkin WeMo Crockpot"
 ATTRIBUTE on WITH
     schema:name = "on",
     iot:purpose = iot-purpose:on,

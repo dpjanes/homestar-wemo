@@ -13,7 +13,7 @@ var _ = iotdb._;
 
 exports.binding = {
     bridge: require('../WeMoBridge').Bridge,
-    model: require('./WeMoInsight.json'),
+    model: require('./we-mo-insight.json'),
     matchd: {
         'iot:vendor.type': 'urn:Belkin:device:insight:1',
         'iot:vendor.model': 'Insight',

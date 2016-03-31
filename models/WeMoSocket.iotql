@@ -5,8 +5,7 @@ CREATE MODEL WeMoSocket WITH
     schema:name = "WeMo Socket",
     schema:description = "Belkin WeMo Socket",
     iot:facet = iot-facet:plug,
-    iot:facet = iot-facet:switch,
-    iot:model = "https://raw.githubusercontent.com/dpjanes/homestar-wemo/master/models/WeMoSocket.json"
+    iot:facet = iot-facet:switch
 ATTRIBUTE on WITH
     schema:name = "on",
     iot:purpose = iot-purpose:on,

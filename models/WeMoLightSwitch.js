@@ -12,7 +12,7 @@ var iotdb = require("iotdb");
 
 exports.binding = {
     bridge: require('../WeMoBridge').Bridge,
-    model: require('./WeMoLightSwitch.json'),
+    model: require('./we-mo-light-switch.json'),
     matchd: {
         'iot:vendor.type': 'urn:Belkin:device:lightswitch:1',
     },

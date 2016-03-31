@@ -5,8 +5,7 @@ CREATE MODEL WeMoMotion WITH
     schema:name = "WeMo Motion",
     schema:description = "Belkin WeMo Motion",
     iot:facet = iot-facet:sensor,
-    iot:facet = iot-facet:sensor.motion,
-    iot:model = "https://raw.githubusercontent.com/dpjanes/homestar-wemo/master/models/WeMoMotion.json"
+    iot:facet = iot-facet:sensor.motion
 ATTRIBUTE motion WITH
     schema:name = "motion",
     iot:purpose = iot-purpose:motion,

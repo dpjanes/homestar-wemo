@@ -32,7 +32,6 @@
     "iot-facet:switch",
     "iot-facet:sensor"
   ],
-  "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-wemo/master/models/WeMoInsight.json",
   "iot:attribute": [
     {
       "@type": "iot:Attribute",

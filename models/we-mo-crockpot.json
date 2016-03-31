@@ -1,15 +1,10 @@
 {
   "@context": {
-    "@base": "file:///we-mo-socket",
-    "@vocab": "file:///we-mo-socket#",
+    "@base": "file:///we-mo-crockpot",
+    "@vocab": "file:///we-mo-crockpot#",
     "iot": "https://iotdb.org/pub/iot#",
     "schema": "http://schema.org/",
     "iot-purpose": "https://iotdb.org/pub/iot-purpose#",
-    "iot-facet": "https://iotdb.org/pub/iot-facet#",
-    "iot:facet": {
-      "@id": "https://iotdb.org/pub/iot#facet",
-      "@type": "@id"
-    },
     "iot:purpose": {
       "@id": "https://iotdb.org/pub/iot#purpose",
       "@type": "@id"
@@ -21,13 +16,8 @@
   },
   "@id": "",
   "@type": "iot:Model",
-  "schema:name": "WeMo Socket",
-  "schema:description": "Belkin WeMo Socket",
-  "iot:facet": [
-    "iot-facet:plug",
-    "iot-facet:switch"
-  ],
-  "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-wemo/master/models/WeMoSocket.json",
+  "schema:name": "WeMo Crockpot",
+  "schema:description": "Belkin WeMo Crockpot",
   "iot:attribute": [
     {
       "@type": "iot:Attribute",

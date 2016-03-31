@@ -1,7 +1,7 @@
 {
   "@context": {
-    "@base": "file:///we-mo-motion",
-    "@vocab": "file:///we-mo-motion#",
+    "@base": "file:///we-mo-light-switch",
+    "@vocab": "file:///we-mo-light-switch#",
     "iot": "https://iotdb.org/pub/iot#",
     "schema": "http://schema.org/",
     "iot-purpose": "https://iotdb.org/pub/iot-purpose#",
@@ -21,24 +21,22 @@
   },
   "@id": "",
   "@type": "iot:Model",
-  "schema:name": "WeMo Motion",
-  "schema:description": "Belkin WeMo Motion",
+  "schema:name": "WeMo Light Switch",
+  "schema:description": "Belkin WeMo Light Switch",
   "iot:facet": [
-    "iot-facet:sensor",
-    "iot-facet:sensor.motion"
+    "iot-facet:switch"
   ],
-  "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-wemo/master/models/WeMoMotion.json",
   "iot:attribute": [
     {
       "@type": "iot:Attribute",
-      "@id": "#motion",
-      "schema:name": "motion",
-      "iot:purpose": "iot-purpose:motion",
+      "@id": "#on",
+      "schema:name": "on",
+      "iot:purpose": "iot-purpose:on",
       "iot:type": "iot:type.boolean",
+      "iot:actuator": true,
       "iot:sensor": true,
-      "iot:read": true,
-      "iot:write": false,
-      "iot:actuator": false
+      "iot:write": true,
+      "iot:read": true
     }
   ]
 }

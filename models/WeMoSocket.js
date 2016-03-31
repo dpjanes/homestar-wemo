@@ -10,7 +10,7 @@ var iotdb = require("iotdb");
 
 exports.binding = {
     bridge: require('../WeMoBridge').Bridge,
-    model: require('./WeMoSocket.json'),
+    model: require('./we-mo-socket.json'),
     matchd: {
         'iot:vendor.type': 'urn:Belkin:device:controllee:1',
         'iot:vendor.model': 'Socket',

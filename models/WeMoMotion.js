@@ -12,7 +12,7 @@ var iotdb = require("iotdb");
 
 exports.binding = {
     bridge: require('../WeMoBridge').Bridge,
-    model: require('./WeMoMotion.json'),
+    model: require('./we-mo-motion.json'),
     matchd: {
         'iot:vendor.type': 'urn:Belkin:device:sensor:1',
     },
