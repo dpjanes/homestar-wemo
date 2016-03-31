@@ -33,10 +33,10 @@
       "schema:name": "on",
       "iot:purpose": "iot-purpose:on",
       "iot:type": "iot:type.boolean",
-      "iot:actuator": true,
-      "iot:sensor": true,
+      "iot:read": true,
       "iot:write": true,
-      "iot:read": true
+      "iot:sensor": true,
+      "iot:actuator": true
     }
   ]
 }
