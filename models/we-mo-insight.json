@@ -47,7 +47,7 @@
     {
       "@type": "iot:Attribute",
       "@id": "#today-power",
-      "schema:name": "value",
+      "schema:name": "today-power",
       "iot:purpose": "iot-purpose:value",
       "iot:what": "iot-purpose:what.power",
       "iot:type": "iot:type.number",
@@ -59,7 +59,7 @@
     {
       "@type": "iot:Attribute",
       "@id": "#total-power",
-      "schema:name": "value",
+      "schema:name": "total-power",
       "iot:purpose": "iot-purpose:value",
       "iot:what": "iot-purpose:what.power.day",
       "iot:type": "iot:type.number",
@@ -71,7 +71,7 @@
     {
       "@type": "iot:Attribute",
       "@id": "#today-uptime",
-      "schema:name": "value",
+      "schema:name": "today-uptime",
       "iot:purpose": "iot-purpose:duration",
       "iot:what": "iot-purpose:what.day",
       "iot:type": "iot:type.integer",
@@ -83,7 +83,7 @@
     {
       "@type": "iot:Attribute",
       "@id": "#total-uptime",
-      "schema:name": "value",
+      "schema:name": "total-uptime",
       "iot:purpose": "iot-purpose:duration",
       "iot:what": "iot-purpose:what.uptime",
       "iot:type": "iot:type.integer",
