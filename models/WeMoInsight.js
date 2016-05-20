@@ -41,9 +41,9 @@ exports.binding = {
                         "on", // State
                         "", // Seconds Since 1970 of Last State Change
                         "", // Last On Seconds
-                        "today-uptime", // Seconds On Today
+                        "today-ontime", // Seconds On Today
                         "", // Unknown – Unit is Seconds
-                        "total-uptime", // Total Seconds
+                        "total-ontime", // Total Seconds
                         "", // Unknown – Units are Watts
                         "today-power", // Energy Used Today in mW * minutes
                         "total-power", // Energy Used Total in mW * minutes
@@ -58,19 +58,19 @@ exports.binding = {
                     }
 
                     /* time in seconds - as is */
-                    if (d["today-uptime"] !== undefined) {
-                        paramd.cookd.on = d["today-uptime"];
+                    if (d["today-ontime"] !== undefined) {
+                        paramd.cookd["today-ontime"] = Math.round(d["today-ontime"]);
                     }
-                    if (d["total-uptime"] !== undefined) {
-                        paramd.cookd.on = d["total-uptime"];
+                    if (d["total-ontime"] !== undefined) {
+                        paramd.cookd["total-ontime"] = Math.round(d["total-ontime"]);
                     }
 
                     /* mW*m -> joules */
                     if (d["today-power"] !== undefined) {
-                        paramd.cookd.on = d["today-power"] / 1000.0 * 60.0;
+                        paramd.cookd["today-power"] = Math.round(d["today-power"] / 1000.0 * 60.0);
                     }
                     if (d["total-power"] !== undefined) {
-                        paramd.cookd.on = d["total-power"] / 1000.0 * 60.0;
+                        paramd.cookd["total-power"] = Math.round(d["total-power"] / 1000.0 * 60.0);
                     }
                 }
             }

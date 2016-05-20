@@ -14,28 +14,36 @@ ATTRIBUTE on WITH
 ATTRIBUTE "today-power" WITH
     schema:name = "today-power",
     iot:purpose = iot-purpose:value,
+    iot:unit = iot-unit:energy.si.joule,
     iot:what = iot-purpose:what.power,
-    iot:type = iot:type.number,
+    iot:qualifier = iot-purpose:qualifier.since.purchase,
+    iot:type = iot:type.integer,
     iot:sensor = true,
     iot:read = true
 ATTRIBUTE "total-power" WITH
     schema:name = "total-power",
     iot:purpose = iot-purpose:value,
-    iot:what = iot-purpose:what.power.day,
-    iot:type = iot:type.number,
+    iot:unit = iot-unit:energy.si.joule,
+    iot:what = iot-purpose:what.power,
+    iot:qualifier = iot-purpose:qualifier.since.purchase,
+    iot:type = iot:type.integer,
     iot:sensor = true,
     iot:read = true
-ATTRIBUTE "today-uptime" WITH
-    schema:name = "today-uptime",
+ATTRIBUTE "today-ontime" WITH
+    schema:name = "today-ontime",
     iot:purpose = iot-purpose:duration,
+    iot:unit = iot-unit:time.si.second,
+    iot:qualifier = iot-purpose:qualifier.since.today,
     iot:what = iot-purpose:what.day,
     iot:type = iot:type.integer,
     iot:sensor = true,
     iot:read = true
-ATTRIBUTE "total-uptime" WITH
-    schema:name = "total-uptime",
+ATTRIBUTE "total-ontime" WITH
+    schema:name = "total-ontime",
     iot:purpose = iot-purpose:duration,
-    iot:what = iot-purpose:what.uptime,
+    iot:unit = iot-unit:time.si.second,
+    iot:qualifier = iot-purpose:qualifier.since.today,
+    iot:what = iot-purpose:what.ontime,
     iot:type = iot:type.integer,
     iot:sensor = true,
     iot:read = true

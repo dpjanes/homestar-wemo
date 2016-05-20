@@ -18,8 +18,17 @@
       "@id": "https://iotdb.org/pub/iot#type",
       "@type": "@id"
     },
+    "iot-unit": "https://iotdb.org/pub/iot-unit#",
+    "iot:unit": {
+      "@id": "https://iotdb.org/pub/iot#unit",
+      "@type": "@id"
+    },
     "iot:what": {
       "@id": "https://iotdb.org/pub/iot#what",
+      "@type": "@id"
+    },
+    "iot:qualifier": {
+      "@id": "https://iotdb.org/pub/iot#qualifier",
       "@type": "@id"
     }
   },
@@ -49,8 +58,10 @@
       "@id": "#today-power",
       "schema:name": "today-power",
       "iot:purpose": "iot-purpose:value",
+      "iot:unit": "iot-unit:energy.si.joule",
       "iot:what": "iot-purpose:what.power",
-      "iot:type": "iot:type.number",
+      "iot:qualifier": "iot-purpose:qualifier.since.purchase",
+      "iot:type": "iot:type.integer",
       "iot:sensor": true,
       "iot:read": true,
       "iot:write": false,
@@ -61,8 +72,10 @@
       "@id": "#total-power",
       "schema:name": "total-power",
       "iot:purpose": "iot-purpose:value",
-      "iot:what": "iot-purpose:what.power.day",
-      "iot:type": "iot:type.number",
+      "iot:unit": "iot-unit:energy.si.joule",
+      "iot:what": "iot-purpose:what.power",
+      "iot:qualifier": "iot-purpose:qualifier.since.purchase",
+      "iot:type": "iot:type.integer",
       "iot:sensor": true,
       "iot:read": true,
       "iot:write": false,
@@ -70,9 +83,11 @@
     },
     {
       "@type": "iot:Attribute",
-      "@id": "#today-uptime",
-      "schema:name": "today-uptime",
+      "@id": "#today-ontime",
+      "schema:name": "today-ontime",
       "iot:purpose": "iot-purpose:duration",
+      "iot:unit": "iot-unit:time.si.second",
+      "iot:qualifier": "iot-purpose:qualifier.since.today",
       "iot:what": "iot-purpose:what.day",
       "iot:type": "iot:type.integer",
       "iot:sensor": true,
@@ -82,10 +97,12 @@
     },
     {
       "@type": "iot:Attribute",
-      "@id": "#total-uptime",
-      "schema:name": "total-uptime",
+      "@id": "#total-ontime",
+      "schema:name": "total-ontime",
       "iot:purpose": "iot-purpose:duration",
-      "iot:what": "iot-purpose:what.uptime",
+      "iot:unit": "iot-unit:time.si.second",
+      "iot:qualifier": "iot-purpose:qualifier.since.today",
+      "iot:what": "iot-purpose:what.ontime",
       "iot:type": "iot:type.integer",
       "iot:sensor": true,
       "iot:read": true,
