@@ -5,6 +5,7 @@
     }, 
     "dependencies": {
         "iotdb": ">=0.14.0", 
+        "iotdb-upnp": "~0.0.12", 
         "watch": "~0.18.0"
     }, 
     "description": "HomeStar / IOTDB Bridge for Belkin WeMo", 
@@ -35,5 +36,5 @@
     "scripts": {
         "test": "grunt"
     }, 
-    "version": "0.1.18"
+    "version": "0.1.19"
 }
