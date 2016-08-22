@@ -8,7 +8,7 @@
         "iotdb-upnp": "~0.0.14", 
         "watch": "~0.19.2"
     }, 
-    "description": "HomeStar / IOTDB Bridge for Belkin WeMo", 
+    "description": "IOTDB Bridge for Belkin WeMo", 
     "devDependencies": {
         "grunt": "~1.0.1", 
         "grunt-contrib-jshint": "~1.0.0", 
