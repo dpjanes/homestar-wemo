@@ -1,6 +1,5 @@
 # homestar-wemo
-
-Connect and control WeMo products with HomeStar and IOTDB.
+[IOTDB](https://github.com/dpjanes/node-iotdb) Bridge for Belkin WeMo devices.
 
 <img src="https://raw.githubusercontent.com/dpjanes/iotdb-homestar/master/docs/HomeStar.png" align="right" />
 
@@ -18,15 +17,18 @@ Then:
 
 # Quick Start
 
-Turn off all WeMo sockets
+Installation:
 
 	$ npm install -g homestar ## with 'sudo' if error
 	$ homestar setup
 	$ homestar install homestar-wemo
-	$ node
-	>>> iotdb = require('iotdb')
-	>>> things = iotdb.connect("WeMoSocket")
-	>>> things.set(":on", false)
+
+Code to turn off all WeMo sockets
+
+	const iotdb = require('iotdb')
+    iotdb.use("homestar-wemo")
+
+	iotdb.connect("WeMoSocket").set(":on", false)
 
 # Models
 ## WeMoSocket

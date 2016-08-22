@@ -3,19 +3,22 @@
     "@base": "file:///we-mo-insight",
     "@vocab": "file:///we-mo-insight#",
     "iot": "https://iotdb.org/pub/iot#",
-    "schema": "http://schema.org/",
     "iot-purpose": "https://iotdb.org/pub/iot-purpose#",
-    "iot-facet": "https://iotdb.org/pub/iot-facet#",
-    "iot:facet": {
-      "@id": "https://iotdb.org/pub/iot#facet",
-      "@type": "@id"
-    },
     "iot:purpose": {
       "@id": "https://iotdb.org/pub/iot#purpose",
       "@type": "@id"
     },
     "iot:type": {
       "@id": "https://iotdb.org/pub/iot#type",
+      "@type": "@id"
+    },
+    "schema": "http://schema.org/",
+    "iot:qualifier": {
+      "@id": "https://iotdb.org/pub/iot#qualifier",
+      "@type": "@id"
+    },
+    "iot:qualifier-period": {
+      "@id": "https://iotdb.org/pub/iot#qualifier-period",
       "@type": "@id"
     },
     "iot-unit": "https://iotdb.org/pub/iot-unit#",
@@ -27,87 +30,93 @@
       "@id": "https://iotdb.org/pub/iot#what",
       "@type": "@id"
     },
-    "iot:qualifier": {
-      "@id": "https://iotdb.org/pub/iot#qualifier",
+    "iot-facet": "https://iotdb.org/pub/iot-facet#",
+    "iot:facet": {
+      "@id": "https://iotdb.org/pub/iot#facet",
       "@type": "@id"
     }
   },
   "@id": "",
   "@type": "iot:Model",
-  "schema:name": "WeMo Insight",
-  "schema:description": "Belkin WeMo Insight",
+  "iot:attribute": [
+    {
+      "@id": "#on",
+      "@type": "iot:Attribute",
+      "iot:actuator": true,
+      "iot:purpose": "iot-purpose:on",
+      "iot:read": true,
+      "iot:sensor": true,
+      "iot:type": "iot:type.boolean",
+      "iot:write": true,
+      "schema:name": "on"
+    },
+    {
+      "@id": "#today-power",
+      "@type": "iot:Attribute",
+      "iot:actuator": true,
+      "iot:purpose": "iot-purpose:value",
+      "iot:qualifier": "iot-purpose:qualifier.total",
+      "iot:qualifier-period": "iot-purpose:qualifier.period.purchase",
+      "iot:read": true,
+      "iot:sensor": true,
+      "iot:type": "iot:type.integer",
+      "iot:unit": "iot-unit:energy.si.joule",
+      "iot:what": "iot-purpose:what.power",
+      "iot:write": true,
+      "schema:name": "today-power"
+    },
+    {
+      "@id": "#total-power",
+      "@type": "iot:Attribute",
+      "iot:actuator": true,
+      "iot:purpose": "iot-purpose:value",
+      "iot:qualifier": "iot-purpose:qualifier.total",
+      "iot:qualifier-period": "iot-purpose:qualifier.period.purchase",
+      "iot:read": true,
+      "iot:sensor": true,
+      "iot:type": "iot:type.integer",
+      "iot:unit": "iot-unit:energy.si.joule",
+      "iot:what": "iot-purpose:what.power",
+      "iot:write": true,
+      "schema:name": "total-power"
+    },
+    {
+      "@id": "#today-ontime",
+      "@type": "iot:Attribute",
+      "iot:actuator": true,
+      "iot:purpose": "iot-purpose:duration",
+      "iot:qualifier": "iot-purpose:qualifier.total",
+      "iot:qualifier-period": "iot-purpose:qualifier.period.today",
+      "iot:read": true,
+      "iot:sensor": true,
+      "iot:type": "iot:type.integer",
+      "iot:unit": "iot-unit:time.si.second",
+      "iot:what": "iot-purpose:what.day",
+      "iot:write": true,
+      "schema:name": "today-ontime"
+    },
+    {
+      "@id": "#total-ontime",
+      "@type": "iot:Attribute",
+      "iot:actuator": true,
+      "iot:purpose": "iot-purpose:duration",
+      "iot:qualifier": "iot-purpose:qualifier.total",
+      "iot:qualifier-period": "iot-purpose:qualifier.period.today",
+      "iot:read": true,
+      "iot:sensor": true,
+      "iot:type": "iot:type.integer",
+      "iot:unit": "iot-unit:time.si.second",
+      "iot:what": "iot-purpose:what.ontime",
+      "iot:write": true,
+      "schema:name": "total-ontime"
+    }
+  ],
   "iot:facet": [
     "iot-facet:plug",
     "iot-facet:switch",
     "iot-facet:sensor"
   ],
-  "iot:attribute": [
-    {
-      "@type": "iot:Attribute",
-      "@id": "#on",
-      "schema:name": "on",
-      "iot:purpose": "iot-purpose:on",
-      "iot:type": "iot:type.boolean",
-      "iot:read": true,
-      "iot:write": true,
-      "iot:sensor": true,
-      "iot:actuator": true
-    },
-    {
-      "@type": "iot:Attribute",
-      "@id": "#today-power",
-      "schema:name": "today-power",
-      "iot:purpose": "iot-purpose:value",
-      "iot:unit": "iot-unit:energy.si.joule",
-      "iot:what": "iot-purpose:what.power",
-      "iot:qualifier": "iot-purpose:qualifier.since.purchase",
-      "iot:type": "iot:type.integer",
-      "iot:sensor": true,
-      "iot:read": true,
-      "iot:write": false,
-      "iot:actuator": false
-    },
-    {
-      "@type": "iot:Attribute",
-      "@id": "#total-power",
-      "schema:name": "total-power",
-      "iot:purpose": "iot-purpose:value",
-      "iot:unit": "iot-unit:energy.si.joule",
-      "iot:what": "iot-purpose:what.power",
-      "iot:qualifier": "iot-purpose:qualifier.since.purchase",
-      "iot:type": "iot:type.integer",
-      "iot:sensor": true,
-      "iot:read": true,
-      "iot:write": false,
-      "iot:actuator": false
-    },
-    {
-      "@type": "iot:Attribute",
-      "@id": "#today-ontime",
-      "schema:name": "today-ontime",
-      "iot:purpose": "iot-purpose:duration",
-      "iot:unit": "iot-unit:time.si.second",
-      "iot:qualifier": "iot-purpose:qualifier.since.today",
-      "iot:what": "iot-purpose:what.day",
-      "iot:type": "iot:type.integer",
-      "iot:sensor": true,
-      "iot:read": true,
-      "iot:write": false,
-      "iot:actuator": false
-    },
-    {
-      "@type": "iot:Attribute",
-      "@id": "#total-ontime",
-      "schema:name": "total-ontime",
-      "iot:purpose": "iot-purpose:duration",
-      "iot:unit": "iot-unit:time.si.second",
-      "iot:qualifier": "iot-purpose:qualifier.since.today",
-      "iot:what": "iot-purpose:what.ontime",
-      "iot:type": "iot:type.integer",
-      "iot:sensor": true,
-      "iot:read": true,
-      "iot:write": false,
-      "iot:actuator": false
-    }
-  ]
+  "iot:model-id": "we-mo-insight",
+  "schema:description": "Belkin WeMo Insight",
+  "schema:name": "WeMo Insight"
 }
