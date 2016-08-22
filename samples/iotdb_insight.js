@@ -8,8 +8,8 @@ var iotdb = require('iotdb')
 var iot = iotdb.iot();
 
 var things = iot.connect('WeMoInsight');
-things.on("state", function(thing) {
-    console.log("+", thing.thing_id(), "\n  ", thing.state("istate"));
+things.on("istate", function(thing) {
+    console.log("+", "istate", thing.thing_id(), "\n  ", thing.state("istate"));
 });
 
 var on = false;
