@@ -3,15 +3,12 @@
  *  Prefer iotdb* versions
  */
 
-try {
-    var model = require('homestar-wemo')
-} catch (x) {
-    var model = require('../index')
-}
+const iotdb = require("iotdb")
+const _ = iotdb._;
 
-var _ = model.iotdb._;
+const module = require('homestar-wemo');
 
-var wrapper = model.wrap("WeMoSocket");
+const wrapper = _.bridge.wrap("WeMoSocket", module.bindings);
 wrapper.on('thing', function(model) {
     model.on("state", function(model) {
         console.log("+ state\n ", model.thing_id(), model.state("istate"));
