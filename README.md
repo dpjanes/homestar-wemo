@@ -3,9 +3,13 @@
 
 <img src="https://raw.githubusercontent.com/dpjanes/iotdb-homestar/master/docs/HomeStar.png" align="right" />
 
+# About
+
 See <a href="samples/">the samples</a> for details how to add to your project.
 particularly <code>model.js</code> for "standalone" and <code>iotdb.js</code>
 for use in IOTDB / HomeStar projects.
+
+* [Read about Bridges](https://github.com/dpjanes/node-iotdb/blob/master/docs/bridges.md)
 
 # Installation
 
