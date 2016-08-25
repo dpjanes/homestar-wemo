@@ -41,7 +41,7 @@ Functionality:
 
 ### Attributes
 
-* <code>on</code>: true or false, purpose <code>iot-attribute:on</code>
+* <code>on</code>: true or false, purpose <code>iot-purpose:on</code>
 
 e.g.
 
@@ -57,7 +57,7 @@ NOT TESTED
 
 ### Attributes
 
-* <code>on</code>: true or false, purpose <code>iot-attribute:on</code>
+* <code>on</code>: true or false, purpose <code>iot-purpose:on</code>
 
 e.g.
 
@@ -71,7 +71,7 @@ NOT TESTED
 
 ### Attributes
 
-* <code>on</code>: true or false, purpose <code>iot-attribute:on</code>
+* <code>on</code>: true or false, purpose <code>iot-purpose:on</code>
 
 e.g.
 
@@ -85,7 +85,7 @@ NOT TESTED
 
 ### Attributes
 
-* <code>motion</code>: true or false, purpose <code>iot-attribute:sensor.motion</code>
+* <code>motion</code>: true or false, purpose <code>iot-purpose:sensor.motion</code>
 
 e.g.
 
@@ -99,7 +99,7 @@ NOT TESTED
 
 ### Attributes
 
-* <code>on</code>: true or false, purpose <code>iot-attribute:on</code>
+* <code>on</code>: true or false, purpose <code>iot-purpose:on</code>
 
 e.g.
 
