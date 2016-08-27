@@ -53,7 +53,7 @@
     {
       "@id": "#today-power",
       "@type": "iot:Attribute",
-      "iot:actuator": true,
+      "iot:actuator": false,
       "iot:purpose": "iot-purpose:value",
       "iot:qualifier": "iot-purpose:qualifier.total",
       "iot:qualifier-period": "iot-purpose:qualifier.period.purchase",
@@ -62,13 +62,13 @@
       "iot:type": "iot:type.integer",
       "iot:unit": "iot-unit:energy.si.joule",
       "iot:what": "iot-purpose:what.power",
-      "iot:write": true,
+      "iot:write": false,
       "schema:name": "today-power"
     },
     {
       "@id": "#total-power",
       "@type": "iot:Attribute",
-      "iot:actuator": true,
+      "iot:actuator": false,
       "iot:purpose": "iot-purpose:value",
       "iot:qualifier": "iot-purpose:qualifier.total",
       "iot:qualifier-period": "iot-purpose:qualifier.period.purchase",
@@ -77,13 +77,13 @@
       "iot:type": "iot:type.integer",
       "iot:unit": "iot-unit:energy.si.joule",
       "iot:what": "iot-purpose:what.power",
-      "iot:write": true,
+      "iot:write": false,
       "schema:name": "total-power"
     },
     {
       "@id": "#today-ontime",
       "@type": "iot:Attribute",
-      "iot:actuator": true,
+      "iot:actuator": false,
       "iot:purpose": "iot-purpose:duration",
       "iot:qualifier": "iot-purpose:qualifier.total",
       "iot:qualifier-period": "iot-purpose:qualifier.period.today",
@@ -92,13 +92,13 @@
       "iot:type": "iot:type.integer",
       "iot:unit": "iot-unit:time.si.second",
       "iot:what": "iot-purpose:what.day",
-      "iot:write": true,
+      "iot:write": false,
       "schema:name": "today-ontime"
     },
     {
       "@id": "#total-ontime",
       "@type": "iot:Attribute",
-      "iot:actuator": true,
+      "iot:actuator": false,
       "iot:purpose": "iot-purpose:duration",
       "iot:qualifier": "iot-purpose:qualifier.total",
       "iot:qualifier-period": "iot-purpose:qualifier.period.today",
@@ -107,7 +107,7 @@
       "iot:type": "iot:type.integer",
       "iot:unit": "iot-unit:time.si.second",
       "iot:what": "iot-purpose:what.ontime",
-      "iot:write": true,
+      "iot:write": false,
       "schema:name": "total-ontime"
     }
   ],
