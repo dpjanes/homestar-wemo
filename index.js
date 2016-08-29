@@ -30,3 +30,5 @@ exports.bindings = [
     require('./models/WeMoCrockpot').binding,
     require('./models/WeMoLightSwitch').binding,
 ];
+
+exports.module_folder = __dirname;
