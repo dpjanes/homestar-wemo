@@ -4,10 +4,10 @@
  *  Note: to work, this package must have been installed by 'homestar install' 
  */
 
-var iotdb = require('iotdb')
-var iot = iotdb.iot();
+const iotdb = require('iotdb')
+iotdb.use("homestar-wemo");
 
-var things = iot.connect('WeMoCrockpot');
+const things = iotdb.connect('WeMoCrockpot');
 things.on("istate", function(thing) {
     console.log("+", "istate", thing.thing_id(), "\n  ", thing.state("istate"));
 });

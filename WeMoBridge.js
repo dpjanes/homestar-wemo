@@ -45,10 +45,6 @@ var WeMoBridge = function (initd, native) {
 
 WeMoBridge.prototype = new iotdb.Bridge();
 
-WeMoBridge.prototype.name = function () {
-    return "WeMoBridge";
-};
-
 /* --- lifecycle --- */
 
 /**

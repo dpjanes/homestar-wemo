@@ -4,16 +4,19 @@
  *  Note: to work, this package must have been installed by 'homestar install' 
  */
 
-var iotdb = require('iotdb')
-var iot = iotdb.iot();
+const iotdb = require('iotdb')
+iotdb.use("homestar-wemo");
 
-var things = iot.connect('WeMoSocket');
+const things = iotdb.connect('WeMoSocket');
+things.on("thing", function(thing) {
+    console.log("+", "found thing");
+});
 things.on("istate", function(thing) {
     console.log("+", "istate", thing.thing_id(), thing.state("istate"));
 });
 
-var on = false;
-var timer = setInterval(function() {
+let on = false;
+const timer = setInterval(function() {
     things.set(":on", on);
     on = !on;
-}, 5000);
+}, 2000);
