@@ -112,8 +112,8 @@
     }
   ],
   "iot:facet": [
-    "iot-facet:plug",
-    "iot-facet:switch",
+    "iot-facet:power.plug",
+    "iot-facet:power.switch",
     "iot-facet:sensor"
   ],
   "iot:model-id": "we-mo-insight",

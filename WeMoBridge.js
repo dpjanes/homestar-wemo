@@ -347,6 +347,7 @@ WeMoBridge.prototype.meta = function () {
         "schema:name": name,
         'iot:vendor.type': self.native.deviceType,
         'iot:vendor.model': self.native.modelName,
+        'iot:vendor.uuid': self.native.uuid,
         "schema:manufacturer": "http://www.belkin.com/",
         /* XXX - note to self - need a way for connectd to inject schema */
         // "schema:model": "http://www.belkin.com/us/p/P-F7C027/",

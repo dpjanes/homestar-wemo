@@ -4,8 +4,8 @@
 CREATE MODEL WeMoInsight WITH
     schema:name = "WeMo Insight",
     schema:description = "Belkin WeMo Insight",
-    iot:facet = iot-facet:plug,
-    iot:facet = iot-facet:switch,
+    iot:facet = iot-facet:power.plug,
+    iot:facet = iot-facet:power.switch,
     iot:facet = iot-facet:sensor
 ATTRIBUTE on WITH
     schema:name = "on",

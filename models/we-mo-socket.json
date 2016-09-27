@@ -35,8 +35,8 @@
     }
   ],
   "iot:facet": [
-    "iot-facet:plug",
-    "iot-facet:switch"
+    "iot-facet:power.plug",
+    "iot-facet:power.switch"
   ],
   "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-wemo/master/models/we-mo-socket.json",
   "iot:model-id": "we-mo-socket",

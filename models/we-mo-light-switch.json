@@ -34,7 +34,7 @@
       "schema:name": "on"
     }
   ],
-  "iot:facet": "iot-facet:switch",
+  "iot:facet": "iot-facet:power.switch",
   "iot:model-id": "we-mo-light-switch",
   "schema:description": "Belkin WeMo Light Switch",
   "schema:name": "WeMo Light Switch"
