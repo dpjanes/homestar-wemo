@@ -22,10 +22,10 @@
 
 "use strict";
 
-var iotdb = require('iotdb');
-var _ = iotdb._;
+const iotdb = require('iotdb');
+const _ = iotdb._;
 
-var logger = iotdb.logger({
+const logger = iotdb.logger({
     name: 'homestar-wemo',
     module: 'WeMoBridge',
 });
@@ -36,8 +36,8 @@ var logger = iotdb.logger({
  *  @param {object|undefined} native
  *  only used for instances, should be a UPnP Control Point
  */
-var WeMoBridge = function (initd, native) {
-    var self = this;
+const WeMoBridge = function (initd, native) {
+    const self = this;
 
     self.initd = _.defaults(initd, {});
     self.native = native;
@@ -51,9 +51,9 @@ WeMoBridge.prototype = new iotdb.Bridge();
  *  See {iotdb.bridge.Bridge#discover} for documentation.
  */
 WeMoBridge.prototype.discover = function () {
-    var self = this;
+    const self = this;
 
-    var cp = require("iotdb-upnp").control_point();
+    const cp = require("iotdb-upnp").control_point();
 
     cp.on("device", function (native) {
         if (!self._is_supported(native)) {
@@ -84,7 +84,7 @@ WeMoBridge.prototype._is_supported = function (native) {
  *  See {iotdb.bridge.Bridge#connect} for documentation.
  */
 WeMoBridge.prototype.connect = function (connectd) {
-    var self = this;
+    const self = this;
     if (!self.native) {
         return;
     }
@@ -102,11 +102,15 @@ WeMoBridge.prototype.connect = function (connectd) {
 };
 
 WeMoBridge.prototype._setup_events = function () {
-    var self = this;
+    const self = this;
 
+    self.connectd.subscribes.forEach(subscribe => self._setup_event(subscribe));
+
+    /*
     for (var si in self.connectd.subscribes) {
         self._setup_event(self.connectd.subscribes[si]);
     }
+    */
 
     self.native.on("device-lost", function () {
         self._forget();
@@ -114,9 +118,9 @@ WeMoBridge.prototype._setup_events = function () {
 };
 
 WeMoBridge.prototype._setup_event = function (service_urn) {
-    var self = this;
+    const self = this;
 
-    var service = self.native.service_by_urn(service_urn);
+    const service = self.native.service_by_urn(service_urn);
     if (!service) {
         logger.error({
             method: "_setup_events",
@@ -126,7 +130,7 @@ WeMoBridge.prototype._setup_event = function (service_urn) {
         return;
     }
 
-    var _on_failed = function (code, error) {
+    const _on_failed = function (code, error) {
         _remove_listeners();
 
         if (!self.native) {
@@ -144,12 +148,12 @@ WeMoBridge.prototype._setup_event = function (service_urn) {
         self._forget();
     };
 
-    var _on_stateChange = function (valued) {
+    const _on_stateChange = function (valued) {
         if (!self.native) {
             return;
         }
 
-        var paramd = {
+        const paramd = {
             rawd: {},
             cookd: {},
         };
@@ -166,7 +170,7 @@ WeMoBridge.prototype._setup_event = function (service_urn) {
         }, "called pulled");
     };
 
-    var _on_subscribe = function (error, data) {
+    const _on_subscribe = function (error, data) {
         if (!self.native) {
             return;
         }
@@ -185,7 +189,7 @@ WeMoBridge.prototype._setup_event = function (service_urn) {
         }
     };
 
-    var _remove_listeners = function () {
+    const _remove_listeners = function () {
         service.removeListener('failed', _on_failed);
         service.removeListener('stateChange', _on_stateChange);
     };
@@ -203,7 +207,7 @@ WeMoBridge.prototype._setup_event = function (service_urn) {
 };
 
 WeMoBridge.prototype._forget = function () {
-    var self = this;
+    const self = this;
     if (!self.native) {
         return;
     }
@@ -213,9 +217,15 @@ WeMoBridge.prototype._forget = function () {
     }, "called");
 
     // tediously avoiding loops
-    var device = self.native;
+    const device = self.native;
     self.native = null;
 
+    self.connectd.subscribes
+        .map(subscribe => device.service_by_urn(subscribe))
+        .filter(service => service)
+        .forEach(service => service.emit("forget"));
+
+    /*
     // make sure services are cleaned up
     for (var si in self.connectd.subscribes) {
         var service_urn = self.connectd.subscribes[si];
@@ -226,6 +236,7 @@ WeMoBridge.prototype._forget = function () {
 
         service.emit("forget");
     }
+    */
 
     self.pulled();
 };
@@ -234,7 +245,7 @@ WeMoBridge.prototype._forget = function () {
  *  See {iotdb.bridge.Bridge#disconnect} for documentation.
  */
 WeMoBridge.prototype.disconnect = function () {
-    var self = this;
+    const self = this;
     if (!self.native || !self.native) {
         return;
     }
@@ -246,7 +257,7 @@ WeMoBridge.prototype.disconnect = function () {
  *  See {iotdb.bridge.Bridge#push} for documentation.
  */
 WeMoBridge.prototype.push = function (pushd, done) {
-    var self = this;
+    const self = this;
     if (!self.native) {
         done(new Error("not connected"));
         return;
@@ -254,14 +265,14 @@ WeMoBridge.prototype.push = function (pushd, done) {
 
     self._validate_push(pushd, done);
 
-    var paramd = {
+    const paramd = {
         cookd: pushd,
         rawd: {},
     };
     self.connectd.data_out(paramd);
 
     for (var service_urn in paramd.rawd) {
-        var service = self.native.service_by_urn(service_urn);
+        const service = self.native.service_by_urn(service_urn);
         if (!service) {
             logger.error({
                 method: "push",
@@ -272,7 +283,7 @@ WeMoBridge.prototype.push = function (pushd, done) {
             continue;
         }
 
-        var serviced = paramd.rawd[service_urn];
+        const serviced = paramd.rawd[service_urn];
         for (var action_id in serviced) {
             var action_value = serviced[action_id];
 
@@ -293,7 +304,7 @@ WeMoBridge.prototype.push = function (pushd, done) {
 };
 
 WeMoBridge.prototype._send_action = function (pushd, service_urn, service, action_id, action_value) {
-    var self = this;
+    const self = this;
 
     service.callAction(action_id, action_value, function (error, buffer) {
         if (!self.native) {
@@ -320,7 +331,7 @@ WeMoBridge.prototype._send_action = function (pushd, service_urn, service, actio
  *  See {iotdb.bridge.Bridge#pull} for documentation.
  */
 WeMoBridge.prototype.pull = function () {
-    var self = this;
+    const self = this;
     if (!self.native) {
         return;
     }
@@ -332,12 +343,12 @@ WeMoBridge.prototype.pull = function () {
  *  See {iotdb.bridge.Bridge#meta} for documentation.
  */
 WeMoBridge.prototype.meta = function () {
-    var self = this;
+    const self = this;
     if (!self.native) {
         return;
     }
 
-    var name = self.native.friendlyName;
+    let name = self.native.friendlyName;
     if (_.isEmpty(name)) {
         name = "WeMo " + self.native.uuid.substring(self.native.uuid.length - 4);
     }
