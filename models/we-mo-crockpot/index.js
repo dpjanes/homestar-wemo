@@ -8,11 +8,11 @@
  *  NOT TESTED
  */
 
-var iotdb = require("iotdb");
+const iotdb = require("iotdb");
 
 exports.binding = {
-    bridge: require('../WeMoBridge').Bridge,
-    model: require('./we-mo-crockpot.json'),
+    bridge: require('../../WeMoBridge').Bridge,
+    model: require("./model.json"),
     matchd: {
         'iot:vendor.type': 'urn:Belkin:device:crockpot:1',
     },

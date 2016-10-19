@@ -8,11 +8,11 @@
  *  NOTE: NOT TESTED
  */
 
-var iotdb = require("iotdb");
+const iotdb = require("iotdb");
 
 exports.binding = {
-    bridge: require('../WeMoBridge').Bridge,
-    model: require('./we-mo-motion.json'),
+    bridge: require('../../WeMoBridge').Bridge,
+    model: require("./model.json"),
     matchd: {
         'iot:vendor.type': 'urn:Belkin:device:sensor:1',
     },

@@ -24,11 +24,11 @@
 
 exports.Bridge = require('./WeMoBridge').Bridge;
 exports.bindings = [
-    require('./models/WeMoSocket').binding,
-    require('./models/WeMoMotion').binding,
-    require('./models/WeMoInsight').binding,
-    require('./models/WeMoCrockpot').binding,
-    require('./models/WeMoLightSwitch').binding,
+    require('./models/we-mo-socket').binding,
+    require('./models/we-mo-motion').binding,
+    require('./models/we-mo-insight').binding,
+    require('./models/we-mo-crockpot').binding,
+    require('./models/we-mo-light-switch').binding,
 ];
 
 exports.module_folder = __dirname;

@@ -1,19 +1,20 @@
 /*
- *  WeMoSocket.js
+ *  WeMoLightSwitch.js
  *
  *  David Janes
  *  IOTDB
- *  2014-01-26
+ *  2014-03-01
+ *
+ *  NOT TESTED
  */
 
-var iotdb = require("iotdb");
+const iotdb = require("iotdb");
 
 exports.binding = {
-    bridge: require('../WeMoBridge').Bridge,
-    model: require('./we-mo-socket.json'),
+    bridge: require('../../WeMoBridge').Bridge,
+    model: require("./model.json"),
     matchd: {
-        'iot:vendor.type': 'urn:Belkin:device:controllee:1',
-        'iot:vendor.model': 'Socket',
+        'iot:vendor.type': 'urn:Belkin:device:lightswitch:1',
     },
     connectd: {
         subscribes: [
