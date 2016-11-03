@@ -123,7 +123,7 @@ WeMoBridge.prototype._setup_event = function (service_urn) {
     const service = self.native.service_by_urn(service_urn);
     if (!service) {
         logger.error({
-            method: "_setup_events",
+            method: "_setup_event",
             unique_id: self.unique_id,
             service_urn: service_urn,
         }, "service not found - highly unexpected");
@@ -138,7 +138,7 @@ WeMoBridge.prototype._setup_event = function (service_urn) {
         }
 
         logger.error({
-            method: "_setup_events/_on_failed",
+            method: "_setup_event/_on_failed",
             code: code,
             error: error,
             service_urn: service_urn,
@@ -164,7 +164,7 @@ WeMoBridge.prototype._setup_event = function (service_urn) {
         self.pulled(paramd.cookd);
 
         logger.info({
-            method: "_setup_events/_on_stateChange",
+            method: "_setup_event/_on_stateChange",
             valued: valued,
             pulled: paramd.cookd,
         }, "called pulled");
@@ -176,9 +176,9 @@ WeMoBridge.prototype._setup_event = function (service_urn) {
         }
 
         if (error) {
-            // console.log("- UPnPDriver._setup_events/subscribe", service_urn, error);
+            // console.log("- UPnPDriver._setup_event/subscribe", service_urn, error);
             logger.error({
-                method: "_setup_events/_on_subscribe",
+                method: "_setup_event/_on_subscribe",
                 error: error,
                 service_urn: service_urn,
                 cause: "probably UPnP related"
@@ -194,9 +194,9 @@ WeMoBridge.prototype._setup_event = function (service_urn) {
         service.removeListener('stateChange', _on_stateChange);
     };
 
-    // console.log("- UPnPDriver._setup_events: subscribe", service_urn);
+    // console.log("- UPnPDriver._setup_event: subscribe", service_urn);
     logger.info({
-        method: "_setup_events/_on_stateChange",
+        method: "_setup_event/_on_stateChange",
         service_urn: service_urn
     }, "subscribe");
 
@@ -271,7 +271,7 @@ WeMoBridge.prototype.push = function (pushd, done) {
     };
     self.connectd.data_out(paramd);
 
-    for (var service_urn in paramd.rawd) {
+    for (let service_urn in paramd.rawd) {
         const service = self.native.service_by_urn(service_urn);
         if (!service) {
             logger.error({
@@ -283,12 +283,18 @@ WeMoBridge.prototype.push = function (pushd, done) {
             continue;
         }
 
+        _.mapObject(paramd.rawd[service_urn], ( action_value, action_id ) => {
+            self._send_action(pushd, service_urn, service, action_id, action_value);
+        })
+
+        /*
         const serviced = paramd.rawd[service_urn];
-        for (var action_id in serviced) {
-            var action_value = serviced[action_id];
+        for (let action_id in serviced) {
+            const action_value = serviced[action_id];
 
             self._send_action(pushd, service_urn, service, action_id, action_value);
         }
+        */
     }
 
     logger.info({
